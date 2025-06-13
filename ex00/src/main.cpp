@@ -6,20 +6,23 @@
 /*   By: cschmid <cschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 14:18:35 by cschmid           #+#    #+#             */
-/*   Updated: 2025/06/06 14:58:21 by cschmid          ###   ########.fr       */
+/*   Updated: 2025/06/13 11:22:17 by cschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
+
 int main()
 {
-    Zombie* heapZombie;
+    Zombie* Zombie;
     randomChump("Lola");
 
-    heapZombie = newZombie("Bidule");
-    heapZombie->announce();
-    delete heapZombie;
+    Zombie = newZombie("Bidule");
+    Zombie->announce();
+    delete Zombie;
 
     return 0;
 }

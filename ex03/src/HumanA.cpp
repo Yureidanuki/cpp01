@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmid <cschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 19:12:59 by chloe             #+#    #+#             */
-/*   Updated: 2025/06/13 11:31:54 by cschmid          ###   ########.fr       */
+/*   Created: 2025/06/12 10:47:07 by cschmid           #+#    #+#             */
+/*   Updated: 2025/06/12 14:21:38 by cschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "Weapon.hpp"
 
+/*========== CONSTRUCTEUR ==========*/
 
-int main()
-{
-    int N = 3;
-    Zombie *horde = zombieHorde(N, "Zorg");
+HumanA::HumanA(const std::string &name, Weapon &weapon)
+	: _name(name), _weapon(weapon){
+}
 
-    for (int i = 0; i < N; ++i)
-    {
-        horde[i].announce();
-    }
+/*========== DESTRUCTEUR ==========*/
 
-    delete[] horde;
-    return 0;
+HumanA::~HumanA(){
+}
+
+/*========== METHODE ==========*/
+
+void HumanA::attack() const{
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmid <cschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 19:12:59 by chloe             #+#    #+#             */
-/*   Updated: 2025/06/13 11:31:54 by cschmid          ###   ########.fr       */
+/*   Created: 2025/06/12 10:47:16 by cschmid           #+#    #+#             */
+/*   Updated: 2025/06/12 14:21:31 by cschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+
+/*========== CONSTRUCTEUR ==========*/
+Weapon::Weapon(const std::string &type){
+	_type = type;
+}
+
+/*========== DESTRUCTEUR ==========*/
+Weapon::~Weapon(){
+}
 
 
-int main()
-{
-    int N = 3;
-    Zombie *horde = zombieHorde(N, "Zorg");
+/*========== GETTER ==========*/
+const std::string &Weapon::getType() const{
+	return (_type);
+}
 
-    for (int i = 0; i < N; ++i)
-    {
-        horde[i].announce();
-    }
-
-    delete[] horde;
-    return 0;
+/*========== SETTER ==========*/
+void Weapon::setType(const std::string &type){
+	_type = type;
 }

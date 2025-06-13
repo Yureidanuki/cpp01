@@ -5,24 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmid <cschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 19:12:59 by chloe             #+#    #+#             */
-/*   Updated: 2025/06/13 11:31:54 by cschmid          ###   ########.fr       */
+/*   Created: 2025/06/13 10:41:19 by cschmid           #+#    #+#             */
+/*   Updated: 2025/06/13 11:00:47 by cschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
+#include "Harl.hpp"
 
 int main()
 {
-    int N = 3;
-    Zombie *horde = zombieHorde(N, "Zorg");
+	Harl harl;
 
-    for (int i = 0; i < N; ++i)
-    {
-        horde[i].announce();
-    }
+	harl.complain("DEBUG");
+	std::cout << std::endl;
 
-    delete[] horde;
-    return 0;
+	harl.complain("INFO");
+	std::cout << std::endl;
+
+	harl.complain("WARNING");
+	std::cout << std::endl;
+
+	harl.complain("ERROR");
+	std::cout << std::endl;
+
+	harl.complain("INVALID");
+
+	return 0;
 }

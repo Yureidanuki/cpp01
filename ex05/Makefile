@@ -1,5 +1,5 @@
 # ================== CONFIGURATION ================== #
-NAME      := Zombie
+NAME      := Harl
 CC        := c++
 CFLAGS    := -Wall -Wextra -Werror -std=c++98 -MMD
 OPTIONS   := -I includes
@@ -8,8 +8,8 @@ SRC_DIR   := src
 OBJ_DIR   := obj
 DEP_DIR   := $(OBJ_DIR)
 
-HEADER_FILES := includes/Zombie.hpp
-SRC_FILES    := main.cpp Zombie.cpp ZombieHorde.cpp
+HEADER_FILES := includes/Harl.hpp
+SRC_FILES    := main.cpp Harl.cpp
 
 SRC   := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS  := $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
@@ -39,7 +39,7 @@ clean:
 	@echo "$(RED)✓ Objets et dépendances supprimés, Ma Reine.$(RESET)"
 
 fclean: clean
-	@rm -rf $(NAME) $(DEP_DIR)
+	@rm -rf $(NAME)
 	@echo "$(RED)✓ Exécutable supprimé, Votre Majesté.$(RESET)"
 
 re: fclean all

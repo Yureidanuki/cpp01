@@ -1,19 +1,16 @@
 # ================== CONFIGURATION ================== #
-NAME      := Zombie
+NAME      := Brain
 CC        := c++
 CFLAGS    := -Wall -Wextra -Werror -std=c++98 -MMD
-OPTIONS   := -I includes
 
-SRC_DIR   := src
+SRC_DIR   := .
 OBJ_DIR   := obj
 DEP_DIR   := $(OBJ_DIR)
 
-HEADER_FILES := includes/Zombie.hpp
-SRC_FILES    := main.cpp Zombie.cpp ZombieHorde.cpp
+SRC_FILES    := main.cpp
 
 SRC   := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS  := $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
-DEPS  := $(addprefix $(DEP_DIR)/, $(SRC_FILES:.cpp=.d))
 
 # ================== COULEURS ================== #
 GREEN  = \033[32m
@@ -24,26 +21,23 @@ RED    = \033[31m
 # ================== RÈGLES ================== #
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER_FILES)
+$(NAME): $(OBJS)
 	@echo "$(BLUE)Linking objects...$(RESET)"
-	@$(CC) $(CFLAGS) $(OPTIONS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✓ Compilation réussie, Ma Reine !$(RESET)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(OPTIONS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS)
-	@rm -rf $(DEPS)
-	@echo "$(RED)✓ Objets et dépendances supprimés, Ma Reine.$(RESET)"
+	@rm -rf $(OBJS) $(DEP_DIR)
+	@echo "$(RED)✓ Objets supprimés, Ma Reine.$(RESET)"
 
 fclean: clean
-	@rm -rf $(NAME) $(DEP_DIR)
+	@rm -rf $(NAME)
 	@echo "$(RED)✓ Exécutable supprimé, Votre Majesté.$(RESET)"
 
 re: fclean all
-
--include $(DEPS)
 
 .PHONY: all clean fclean re
